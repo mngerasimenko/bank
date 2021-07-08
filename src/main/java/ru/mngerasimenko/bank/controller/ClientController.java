@@ -36,7 +36,7 @@ public class ClientController {
 
     @PostMapping("/client-create")
     public String createClient(Client client) {
-        clientService.addClient(client);
+        clientService.saveClient(client);
         return "redirect:/clients";
     }
 
@@ -45,4 +45,18 @@ public class ClientController {
         clientService.deleteClient(id);
         return "redirect:/clients";
     }
+
+    @GetMapping("/client-update/{clientId}")
+    public String updateClientForm(@PathVariable("clientId") UUID clientId, Model model) {
+        Client client = clientService.getById(clientId);
+        model.addAttribute("client", client);
+        return "client-update";
+    }
+
+    @PostMapping("/client-update")
+    public String updateClient(Client client) {
+        clientService.saveClient(client);
+        return "redirect:/clients";
+    }
+
 }

@@ -1,11 +1,15 @@
 package ru.mngerasimenko.bank.domain;
 
+import lombok.Data;
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.UUID;
 
 
 @Table(name = "bk_bank")
 @Entity
+@Data
 public class Bank {
 
     @Id
@@ -18,29 +22,5 @@ public class Bank {
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "credit_id")
     private Credit credit;
-
-    public UUID getBankId() {
-        return bankId;
-    }
-
-    public void setBankId(UUID bankId) {
-        this.bankId = bankId;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public Credit getCredit() {
-        return credit;
-    }
-
-    public void setCredit(Credit credit) {
-        this.credit = credit;
-    }
 
 }

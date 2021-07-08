@@ -22,15 +22,20 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client findByFio() {
-        return null;
+    public Client findByFio(String fio) {
+        return clientRepository.findClientByFioContains(fio);
     }
 
-    public void addClient(Client client) {
+    public void saveClient(Client client) {
         clientRepository.save(client);
     }
 
     public void deleteClient(UUID id) {
         clientRepository.deleteById(id);
     }
+
+    public Client getById(UUID clientId) {
+        return clientRepository.getById(clientId);
+    }
+
 }

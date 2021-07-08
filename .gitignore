@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+/package-lock.json
+/package.json
+/webpack.config.js
+/webpack.generated.js
+/.mvn/
+/node_modules/
+/mvnw
+/mvnw.cmd

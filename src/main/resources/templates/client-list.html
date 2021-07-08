@@ -22,11 +22,11 @@
             <tbody>
             <tr th:each="client : ${clients}">
 <!--                <td th:text="${client.clientId}"></td>-->
-                <td th:text="${client.fio}"></td>
-                <td th:text="${client.telephone}"></td>
-                <td th:text="${client.email}"></td>
-                <td th:text="${client.passport}"></td>
-                <td><a th:href="@{client-update/{clientId}(clientId=${client.clientId})}">Edit</a></td>
+                <td th:text="${client.fio}" ></td>
+                <td th:text="${client.telephone}" ></td>
+                <td th:text="${client.email}" ></td>
+                <td th:text="${client.passport}"  ></td>
+                <td><a th:href="@{client-update/{clientId}(clientId=${client.clientId})}" >Edit</a></td>
                 <td><a th:href="@{client-delete/{clientId}(clientId=${client.clientId})}">Delete</a></td>
             </tr>
             </tbody>

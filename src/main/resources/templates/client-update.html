@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Update client</title>
 </head>
 <body>
-
+<form action="#" th:action="@{/client-update}" th:object="${client}" method="post">
+    <label for="clientId">clientId</label>
+    <input readonly type="text" th:field="*{clientId}" id="clientId" placeholder="clientId">
+    <br/>
+    <label for="fio">FIO</label>
+    <input type="text" th:field="*{fio}" id="fio" placeholder="fio">
+    <br/>
+    <label for="telephone">Telephone</label>
+    <input type="text" th:field="*{telephone}" id="telephone" placeholder="telephone">
+    <br/>
+    <label for="email">email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="email">
+    <br/>
+    <label for="passport">Passport</label>
+    <input type="text" th:field="*{passport}" id="passport" placeholder="passport">
+    <br/>
+    <input type="submit" value="Update Client">
+</form>
 </body>
 </html>

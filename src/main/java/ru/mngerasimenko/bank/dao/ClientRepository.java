@@ -21,7 +21,7 @@ public interface ClientRepository extends JpaRepository<Client, UUID> {
 //                    "LEFT JOIN FETCH cl.offers")
 //    List<Client> findWithOffers();
 
-//    Client findClientByFioContains(String fio);
+    Client findClientByFioContains(String fio);
 
 
 }
