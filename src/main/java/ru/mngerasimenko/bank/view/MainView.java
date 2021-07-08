@@ -1,31 +1,28 @@
 package ru.mngerasimenko.bank.view;
 
 
-
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.mngerasimenko.bank.domain.Client;
 import ru.mngerasimenko.bank.service.ClientService;
+
 
 @Route
 public class MainView extends VerticalLayout {
 
     @Autowired
     private ClientService clientService;
+    private ClientEditForm clientEdit;
 
-    final Grid<Client> grid;
+    public MainView(ClientService clientService, ClientEditForm clientEdit) {
 
-    public MainView(ClientService clientService) {
         this.clientService = clientService;
-        this.grid = new Grid<>(Client.class);
-        add(grid);
-        listCustomers();
+        this.clientEdit = clientEdit;
+
+        add(clientEdit);
     }
 
-    private void listCustomers() {
-        grid.setItems(clientService.findAll());
-    }
+
 }
 

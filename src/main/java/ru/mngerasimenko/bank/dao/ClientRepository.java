@@ -11,17 +11,10 @@ import java.util.UUID;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, UUID> {
 
-//    @Query(name = "Client.findWithBanks",
-//            value = "SELECT cl FROM Client cl " +
-//                    "LEFT JOIN FETCH cl.banks")
-//    List<Client> findWithBanks();
-//
-//    @Query(name = "Client.findWithOffers",
-//            value = "SELECT cl FROM Client cl " +
-//                    "LEFT JOIN FETCH cl.offers")
-//    List<Client> findWithOffers();
+    List<Client> findClientByFioContains(String fio);
 
-    Client findClientByFioContains(String fio);
+    List<Client> findClientByFioContainsAndTelephoneContains(String fio, String telephone);
 
+    List<Client> findClientByTelephoneContains(String telephone);
 
 }

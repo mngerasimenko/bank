@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.mngerasimenko.bank.domain.Client;
+import ru.mngerasimenko.bank.exception.DaoException;
 import ru.mngerasimenko.bank.service.ClientService;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class ClientController {
     }
 
     @GetMapping("client-delete/{clientId}")
-    public String deleteClient(@PathVariable("clientId") UUID id) {
+    public String deleteClient(@PathVariable("clientId") UUID id) throws DaoException {
         clientService.deleteClient(id);
         return "redirect:/clients";
     }
